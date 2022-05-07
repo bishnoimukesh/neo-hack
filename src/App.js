@@ -1,6 +1,6 @@
 import { ChakraProvider, Box, theme } from '@chakra-ui/react';
 import { Routes, Route } from 'react-router-dom';
-import { Login, SignUp, Home } from './pages';
+import { Login, SignUp, Home, Profile } from './pages';
 import { Navbar } from './components';
 
 function App() {
@@ -12,6 +12,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/" element={<Home />} />
+          <Route path="/profile" element={<Profile />} />
         </Routes>
       </Box>
     </ChakraProvider>
