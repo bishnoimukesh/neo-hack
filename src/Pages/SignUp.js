@@ -10,6 +10,7 @@ import {
 } from '@chakra-ui/react';
 import { ArrowForwardIcon } from '@chakra-ui/icons';
 import { Link as ReachLink } from 'react-router-dom';
+import axios from 'axios';
 
 const SignUp = () => {
   const [user, setUser] = useState({
@@ -19,8 +20,14 @@ const SignUp = () => {
     password: '',
   });
 
-  const submitFormHandler = userData => {
+  const submitFormHandler = async(userData) => {
     console.log('Submitted!', userData);
+    try {
+      await axios.post('http://localhost:3200/api/user/register', userData);
+      console.log('Registration Successful!');
+    } catch (error) {
+      console.log('Registration Failed!', error);
+    }
   };
 
   return (

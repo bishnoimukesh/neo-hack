@@ -2,11 +2,13 @@ const express = require('express');
 const app = express.Router();
 const User = require('../controller/user')
 
-app.get('/login', async (req, res) => {
+app.post('/login', async (req, res) => {
     try {
         const result = await User.findOne({username: req.body.username, password: req.body.password});
-        if (result.length) {
+        if (result) {
             res.send('Login Successful');
+        }else {
+        res.status(400).send('Login Failed');
         }
     }catch (err) {
         res.status(400).send(err);
@@ -14,7 +16,7 @@ app.get('/login', async (req, res) => {
     }
 });
 
-app.get('/register', async (req, res) => {
+app.post('/register', async (req, res) => {
     try {
         const newUser = new User(req.body)
         await newUser.save()
