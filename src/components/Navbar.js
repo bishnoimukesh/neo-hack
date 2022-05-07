@@ -1,8 +1,21 @@
 import { Box, Button, Heading, Image } from '@chakra-ui/react';
 import { ColorModeSwitcher } from '../ColorModeSwitcher';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useAuth } from '../contexts';
 
 const Navbar = () => {
+  const {
+    authState: { isAuth },
+  } = useAuth();
+
+  const navigate = useNavigate();
+
+  const logoutHandler = () => {
+    localStorage.clear();
+    navigate(0);
+    navigate('/');
+  };
+
   return (
     <Box
       display="flex"
@@ -24,11 +37,22 @@ const Navbar = () => {
         </Link>
       </Box>
       <Box display="flex" alignItems="center">
-        <Link to="/login">
-          <Button colorScheme="blue" variant="solid" mx={2}>
-            Login
+        {isAuth ? (
+          <Button
+            colorScheme="blue"
+            variant="solid"
+            mx={2}
+            onClick={logoutHandler}
+          >
+            Logout
           </Button>
-        </Link>
+        ) : (
+          <Link to="/login">
+            <Button colorScheme="blue" variant="solid" mx={2}>
+              Login
+            </Button>
+          </Link>
+        )}
         <ColorModeSwitcher fontSize="2xl" />
       </Box>
     </Box>
