@@ -1,7 +1,7 @@
 import { Box } from '@chakra-ui/react';
 import { Tabs, TabList, TabPanels, Tab, TabPanel } from '@chakra-ui/react'
 import { Heading } from '@chakra-ui/react'
-import {PersonalInfo, Skill} from '../components/index'
+import {PersonalInfo, Skill, Experience} from '../components/index'
 
 const Profile = () => {
     return (
@@ -21,7 +21,7 @@ const Profile = () => {
                             <PersonalInfo/>
                         </TabPanel>
                         <TabPanel>
-                            <p>two!</p>
+                            <Experience/>
                         </TabPanel>
                         <TabPanel>
                             <Skill/>
