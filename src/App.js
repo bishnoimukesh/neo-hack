@@ -2,7 +2,7 @@ import React from 'react';
 import { ChakraProvider, Box, theme } from '@chakra-ui/react';
 import { ColorModeSwitcher } from './ColorModeSwitcher';
 import { Routes, Route } from 'react-router-dom';
-import { SignUp } from './Pages/SignUp';
+import { Login, SignUp } from './Pages';
 
 function App() {
   return (
@@ -10,6 +10,7 @@ function App() {
       <Box fontSize="xl">
         <ColorModeSwitcher justifySelf="flex-end" />
         <Routes>
+          <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<SignUp />} />
         </Routes>
       </Box>
