@@ -24,8 +24,8 @@ const Login = () => {
         'http://localhost:3200/api/user/login',
         userData
       );
-      console.log('Login Successful!');
-      localStorage.setItem('user', JSON.stringify(user));
+      console.log('Login Successful!', user.data);
+      localStorage.setItem('user', JSON.stringify(user.data));
       navigate('/');
     } catch (error) {
       console.log('Login Failed!', error);
