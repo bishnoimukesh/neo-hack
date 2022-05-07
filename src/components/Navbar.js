@@ -1,5 +1,6 @@
 import { Box, Button, Heading, Image } from '@chakra-ui/react';
 import { ColorModeSwitcher } from '../ColorModeSwitcher';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   return (
@@ -16,14 +17,18 @@ const Navbar = () => {
           src="/assets/resume-logo.webp"
           alt="Resume Builder Logo"
         />
-        <Heading as="h2" size="lg" mx={4}>
-          Resume Builder
-        </Heading>
+        <Link to="/">
+          <Heading as="h2" size="lg" mx={4}>
+            Resume Builder
+          </Heading>
+        </Link>
       </Box>
       <Box display="flex" alignItems="center">
-        <Button colorScheme="blue" variant="solid" mx={2}>
-          Login
-        </Button>
+        <Link to="/login">
+          <Button colorScheme="blue" variant="solid" mx={2}>
+            Login
+          </Button>
+        </Link>
         <ColorModeSwitcher fontSize="2xl" />
       </Box>
     </Box>
