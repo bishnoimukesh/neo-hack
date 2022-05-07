@@ -9,9 +9,8 @@ app.post('/login', async (req, res) => {
       password: req.body.password,
     });
     if (result) {
-      console.log('Req', req);
-      console.log('res', res);
-      res.send('Login Successful');
+      const user = req.body;
+      res.send(user);
     } else {
       res.status(400).send('Login Failed');
     }
