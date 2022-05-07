@@ -9,18 +9,21 @@ import {
   Link,
 } from '@chakra-ui/react';
 import { ArrowForwardIcon } from '@chakra-ui/icons';
-import { Link as ReachLink } from 'react-router-dom';
+import { Link as ReachLink, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 const Login = () => {
+  const navigate = useNavigate();
   const [user, setUser] = useState({
     email: '',
     password: ''
   });
   const submitFormHandler = async(userData) => {
     try {
-      await axios.post('http://localhost:3200/api/user/login', userData);
+      const user = await axios.post('http://localhost:3200/api/user/login', userData);
       console.log('Login Successful!');
+      localStorage.setItem('user-resume', JSON.stringify(user));
+      navigate('/');
     } catch (error) {
       console.log('Login Failed!', error);
     }
