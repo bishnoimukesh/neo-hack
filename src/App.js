@@ -8,6 +8,7 @@ function App() {
       <Box textAlign="center" fontSize="xl">
         <Grid minH="100vh" p={3}>
           <ColorModeSwitcher justifySelf="flex-end" />
+          <h1>Resume Builder</h1>
         </Grid>
       </Box>
     </ChakraProvider>
