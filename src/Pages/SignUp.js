@@ -6,8 +6,10 @@ import {
   FormLabel,
   FormHelperText,
   Input,
+  Link,
 } from '@chakra-ui/react';
 import { ArrowForwardIcon } from '@chakra-ui/icons';
+import { Link as ReachLink } from 'react-router-dom';
 
 const SignUp = () => {
   return (
@@ -32,17 +34,17 @@ const SignUp = () => {
         <Input id="password" type="password" />
         <FormHelperText>We'll never share your password.</FormHelperText>
         <Box display="flex" alignItems="center" justifyContent="space-between">
-          <Button type="submit" colorScheme="blue" my="4">
+          <Button
+            type="submit"
+            colorScheme="blue"
+            my="4"
+            rightIcon={<ArrowForwardIcon />}
+          >
             Register
           </Button>
-          <Button
-            type="button"
-            rightIcon={<ArrowForwardIcon />}
-            colorScheme="blue"
-            variant="outline"
-          >
-            Login
-          </Button>
+          <Link as={ReachLink} to="/login">
+            Already have an Account?
+          </Link>
         </Box>
       </FormControl>
     </Box>

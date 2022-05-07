@@ -33,12 +33,7 @@ const Login = () => {
           >
             Login
           </Button>
-          <Link
-            as={ReachLink}
-            to="/signup"
-            colorScheme="blue"
-            variant="outline"
-          >
+          <Link as={ReachLink} to="/signup">
             Create an Account
           </Link>
         </Box>
