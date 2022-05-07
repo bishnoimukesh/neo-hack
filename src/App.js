@@ -1,14 +1,17 @@
 import React from 'react';
-import { ChakraProvider, Box, Grid, theme } from '@chakra-ui/react';
+import { ChakraProvider, Box, theme } from '@chakra-ui/react';
 import { ColorModeSwitcher } from './ColorModeSwitcher';
+import { Routes, Route } from 'react-router-dom';
+import { SignUp } from './Pages/SignUp';
 
 function App() {
   return (
     <ChakraProvider theme={theme}>
-      <Box textAlign="center" fontSize="xl">
-        <Grid minH="100vh" p={3}>
-          <ColorModeSwitcher justifySelf="flex-end" />
-        </Grid>
+      <Box fontSize="xl">
+        <ColorModeSwitcher justifySelf="flex-end" />
+        <Routes>
+          <Route path="/signup" element={<SignUp />} />
+        </Routes>
       </Box>
     </ChakraProvider>
   );
