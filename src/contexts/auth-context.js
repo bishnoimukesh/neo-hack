@@ -18,7 +18,11 @@ const AuthProvider = ({ children }) => {
     });
   }, []);
 
-  return <AuthContext.Provider>{children}</AuthContext.Provider>;
+  return (
+    <AuthContext.Provider value={{ authState, authDispatch }}>
+      {children}
+    </AuthContext.Provider>
+  );
 };
 
 const useAuth = () => useContext(AuthContext);
