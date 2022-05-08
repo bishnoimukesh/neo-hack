@@ -19,6 +19,13 @@ const Project = () => {
         { projectData, _id: user._id }
       );
       localStorage.setItem('user', JSON.stringify(data));
+      setProjectInfo({
+        ...projectInfo,
+        title: '',
+        duration: '',
+        stacks: '',
+        description: '',
+      });
     } catch (error) {
       console.log('Update Failed!', error);
     }

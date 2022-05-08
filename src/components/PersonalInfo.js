@@ -22,6 +22,17 @@ const PersonalInfo = () => {
         { personalInfo, _id: user._id }
       );
       localStorage.setItem('user', JSON.stringify(data));
+      setpersonalInfo({
+        ...personalInfo,
+        firstName: '',
+        middleName: '',
+        lastName: '',
+        mobileNumber: '',
+        twitter: '',
+        portfolio: '',
+        address: '',
+        objective: '',
+      });
     } catch (error) {
       console.log('Update Failed!', error);
     }

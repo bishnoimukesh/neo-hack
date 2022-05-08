@@ -20,6 +20,15 @@ const Skill = () => {
         { skillData, _id: user._id }
       );
       localStorage.setItem('user', JSON.stringify(data));
+      setSkillInfo({
+        ...skillInfo,
+        skill1: '',
+        skill2: '',
+        skill3: '',
+        skill4: '',
+        skill5: '',
+        skill6: '',
+      });
     } catch (error) {
       console.log('Update Failed!', error);
     }

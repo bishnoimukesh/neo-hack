@@ -20,6 +20,15 @@ const Experience = () => {
         { experienceData, _id: user._id }
       );
       localStorage.setItem('user', JSON.stringify(data));
+      setexperienceInfo({
+        ...experienceInfo,
+        designation: '',
+        company: '',
+        duration: '',
+        from: '',
+        to: '',
+        technology: '',
+      });
     } catch (error) {
       console.log('Update Failed!', error);
     }
