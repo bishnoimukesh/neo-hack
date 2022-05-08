@@ -12,6 +12,7 @@ import { ArrowForwardIcon } from '@chakra-ui/icons';
 import { Link as ReachLink, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { useAuth } from '../contexts';
+import { useToast } from '../custom-hooks';
 
 const Login = () => {
   const navigate = useNavigate();
@@ -22,6 +23,8 @@ const Login = () => {
 
   const { authDispatch } = useAuth();
 
+  const { showToast } = useToast();
+
   const submitFormHandler = async userData => {
     try {
       const user = await axios.post(
@@ -31,9 +34,10 @@ const Login = () => {
       console.log(user, 'user aaya bhai');
       authDispatch({ type: 'AUTH_SUCCESS', payload: user.data });
       localStorage.setItem('user', JSON.stringify(user.data));
+      showToast('Login Successfull!', 'success');
       navigate('/');
     } catch (error) {
-      console.log('Login Failed!', error);
+      showToast(error.response.data, 'error');
     }
   };
 

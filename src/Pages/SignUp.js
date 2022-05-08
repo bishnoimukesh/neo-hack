@@ -11,6 +11,7 @@ import {
 import { ArrowForwardIcon } from '@chakra-ui/icons';
 import { Link as ReachLink } from 'react-router-dom';
 import axios from 'axios';
+import { useToast } from '../custom-hooks';
 
 const SignUp = () => {
   const [user, setUser] = useState({
@@ -20,12 +21,14 @@ const SignUp = () => {
     password: '',
   });
 
-  const submitFormHandler = async(userData) => {
+  const { showToast } = useToast();
+
+  const submitFormHandler = async userData => {
     try {
-      const data = await axios.post('http://localhost:3200/api/user/register', userData);
-      console.log(data);
+      await axios.post('http://localhost:3200/api/user/register', userData);
+      showToast('Registration Successfull!', 'success');
     } catch (error) {
-      console.log('Registration Failed!', error);
+      showToast(error.response.data, 'error');
     }
   };
 
