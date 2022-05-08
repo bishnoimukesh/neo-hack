@@ -9,7 +9,7 @@ import {
   Link,
 } from '@chakra-ui/react';
 import { ArrowForwardIcon } from '@chakra-ui/icons';
-import { Link as ReachLink } from 'react-router-dom';
+import { Link as ReachLink, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 const SignUp = () => {
@@ -20,10 +20,16 @@ const SignUp = () => {
     password: '',
   });
 
-  const submitFormHandler = async(userData) => {
+  const navigate = useNavigate();
+
+  const submitFormHandler = async userData => {
     try {
-      const data = await axios.post('http://localhost:3200/api/user/register', userData);
+      const { data } = await axios.post(
+        'http://localhost:3200/api/user/register',
+        userData
+      );
       console.log(data);
+      navigate('/login');
     } catch (error) {
       console.log('Registration Failed!', error);
     }

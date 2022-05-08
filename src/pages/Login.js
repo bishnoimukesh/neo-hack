@@ -28,7 +28,6 @@ const Login = () => {
         'http://localhost:3200/api/user/login',
         userData
       );
-      console.log(user, 'user aaya bhai');
       authDispatch({ type: 'AUTH_SUCCESS', payload: user.data });
       localStorage.setItem('user', JSON.stringify(user.data));
       navigate('/');
@@ -74,6 +73,21 @@ const Login = () => {
             Create an Account
           </Link>
         </Box>
+        <Button
+          type="button"
+          rightIcon={<ArrowForwardIcon />}
+          colorScheme="blue"
+          my="4"
+          onClick={() =>
+            submitFormHandler({
+              email: 'kuldeepgupta@gmail.com',
+              password: 'kuldeep',
+            })
+          }
+          w="100%"
+        >
+          Login as Guest
+        </Button>
       </FormControl>
     </Box>
   );
