@@ -22,11 +22,18 @@ const Home = () => {
         <Heading as="h4" size="md">
           The online resume builder which helps folks getting hired.
         </Heading>
-        <Link to="/profile">
-          <Button colorScheme="blue" variant="solid" size="lg" my="2rem">
-            Get Started
-          </Button>
-        </Link>
+        <Box display="flex">
+          <Link to="/profile">
+            <Button colorScheme="blue" variant="solid" size="lg" my="2rem">
+              Get Started
+            </Button>
+          </Link>
+          <Link to="/template">
+            <Button colorScheme="blue" variant="solid" size="lg" m="2rem">
+              Template
+            </Button>
+          </Link>
+        </Box>
       </Box>
       <Image
         boxSize="32rem"
