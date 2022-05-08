@@ -3,8 +3,8 @@ const authReducer = (state, action) => {
     case 'AUTH_SUCCESS':
       return {
         ...state,
-        isAuth: action.payload.user ? true : false,
-        user: action.payload.user,
+        isAuth: !!action.payload,
+        user: action.payload,
       };
     default:
       return state;

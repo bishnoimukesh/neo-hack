@@ -14,7 +14,7 @@ const AuthProvider = ({ children }) => {
   useEffect(() => {
     authDispatch({
       type: 'AUTH_SUCCESS',
-      payload: { user: JSON.parse(localStorage.getItem('user')) },
+      payload: JSON.parse(localStorage.getItem('user')),
     });
   }, []);
 
