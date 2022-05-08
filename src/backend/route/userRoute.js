@@ -16,7 +16,6 @@ app.post('/login', async (req, res) => {
     }
   } catch (err) {
     res.status(400).send(err);
-    // res.status(500).json(err);
   }
 });
 
@@ -25,6 +24,18 @@ app.post('/register', async (req, res) => {
     const newUser = new User(req.body);
     const user = await newUser.save();
     delete user.password;
+    res.send(user);
+  } catch (err) {
+    res.status(400).send(err);
+  }
+});
+
+app.post('/update', async (req, res) => {
+  try {
+    await User.findOneAndUpdate({
+      _id: req.body._id,
+    }, req.body);
+    const user = await User.findOne({ _id: req.body._id });
     res.send(user);
   } catch (err) {
     res.status(400).send(err);

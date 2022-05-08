@@ -4,7 +4,7 @@ import { Box, SimpleGrid, Input, Button, FormControl } from '@chakra-ui/react'
 const Skill = () => {
     return (
         <>
-        <FormControl w="100%">
+        <FormControl w="100%" name="skill">
             <SimpleGrid columns={[3,3]} spacing='40px'>
                 <Input placeholder='Skills' />
                 <Input placeholder='Skills' />
