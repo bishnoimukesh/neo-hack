@@ -6,7 +6,7 @@ import {PersonalInfo, Skill, Experience, Project} from '../components/index'
 const Profile = () => {
     return (
         <>
-            <Heading display="flex" justifyContent="center">Update Profile</Heading>
+            <Heading display="flex" justifyContent="center" mt={5} mb={8}>Update Profile</Heading>
             <Box display="flex" justifyContent="center" >
                 <Tabs w="90%" >
                     <TabList justifyContent="space-around">
