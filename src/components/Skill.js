@@ -1,4 +1,10 @@
-import { SimpleGrid, Input, Button, FormControl } from '@chakra-ui/react';
+import {
+  SimpleGrid,
+  Input,
+  Button,
+  FormControl,
+  useToast,
+} from '@chakra-ui/react';
 import { useState } from 'react';
 import axios from 'axios';
 
@@ -11,7 +17,10 @@ const Skill = () => {
     skill5: '',
     skill6: '',
   });
+
   const user = JSON.parse(localStorage.getItem('user'));
+  const toast = useToast();
+
   const submitFormHandler = async skillData => {
     console.log(skillData);
     try {
@@ -20,6 +29,13 @@ const Skill = () => {
         { skillData, _id: user._id }
       );
       localStorage.setItem('user', JSON.stringify(data));
+      toast({
+        title: 'Skills Added!',
+        position: 'top-right',
+        status: 'success',
+        duration: 4000,
+        isClosable: true,
+      });
       setSkillInfo({
         ...skillInfo,
         skill1: '',
@@ -30,7 +46,13 @@ const Skill = () => {
         skill6: '',
       });
     } catch (error) {
-      console.log('Update Failed!', error);
+      toast({
+        title: error.response.data,
+        position: 'top-right',
+        status: 'error',
+        duration: 2000,
+        isClosable: true,
+      });
     }
   };
 

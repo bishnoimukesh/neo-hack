@@ -1,4 +1,4 @@
-import { Box, Button, Heading, Image } from '@chakra-ui/react';
+import { Box, Button, Heading, Image, useToast } from '@chakra-ui/react';
 import { ColorModeSwitcher } from '../ColorModeSwitcher';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts';
@@ -9,11 +9,18 @@ const Navbar = () => {
   } = useAuth();
 
   const navigate = useNavigate();
+  const toast = useToast();
 
   const logoutHandler = () => {
     localStorage.clear();
+    toast({
+      title: 'Logout Successfully!',
+      position: 'top-right',
+      status: 'success',
+      duration: 4000,
+      isClosable: true,
+    });
     navigate(0);
-    navigate('/');
   };
 
   return (
