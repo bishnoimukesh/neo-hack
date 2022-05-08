@@ -7,6 +7,7 @@ import {
   FormHelperText,
   Input,
   Link,
+  useToast,
 } from '@chakra-ui/react';
 import { ArrowForwardIcon } from '@chakra-ui/icons';
 import { Link as ReachLink, useNavigate } from 'react-router-dom';
@@ -21,6 +22,7 @@ const Login = () => {
   });
 
   const { authDispatch } = useAuth();
+  const toast = useToast();
 
   const submitFormHandler = async userData => {
     try {
@@ -30,9 +32,22 @@ const Login = () => {
       );
       authDispatch({ type: 'AUTH_SUCCESS', payload: user.data });
       localStorage.setItem('user', JSON.stringify(user.data));
+      toast({
+        title: 'Login Successfull!',
+        position: 'top-right',
+        status: 'success',
+        duration: 2000,
+        isClosable: true,
+      });
       navigate('/');
     } catch (error) {
-      console.log('Login Failed!', error);
+      toast({
+        title: error.response.data,
+        position: 'top-right',
+        status: 'error',
+        duration: 2000,
+        isClosable: true,
+      });
     }
   };
 

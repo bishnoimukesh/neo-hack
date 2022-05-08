@@ -7,6 +7,7 @@ import {
   FormHelperText,
   Input,
   Link,
+  useToast,
 } from '@chakra-ui/react';
 import { ArrowForwardIcon } from '@chakra-ui/icons';
 import { Link as ReachLink, useNavigate } from 'react-router-dom';
@@ -21,6 +22,7 @@ const SignUp = () => {
   });
 
   const navigate = useNavigate();
+  const toast = useToast();
 
   const submitFormHandler = async userData => {
     try {
@@ -29,9 +31,22 @@ const SignUp = () => {
         userData
       );
       console.log(data);
+      toast({
+        title: 'Registration Successfull!',
+        position: 'top-right',
+        status: 'success',
+        duration: 2000,
+        isClosable: true,
+      });
       navigate('/login');
     } catch (error) {
-      console.log('Registration Failed!', error);
+      toast({
+        title: error.response.data,
+        position: 'top-right',
+        status: 'error',
+        duration: 2000,
+        isClosable: true,
+      });
     }
   };
 
