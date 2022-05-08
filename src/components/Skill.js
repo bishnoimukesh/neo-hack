@@ -1,4 +1,4 @@
-import { Box, SimpleGrid, Input, Button, FormControl } from '@chakra-ui/react'
+import { SimpleGrid, Input, Button, FormControl } from '@chakra-ui/react'
 import { useState } from 'react';
 import axios from 'axios';
 
