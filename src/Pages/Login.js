@@ -28,6 +28,7 @@ const Login = () => {
         'http://localhost:3200/api/user/login',
         userData
       );
+      console.log(user, 'user aaya bhai');
       authDispatch({ type: 'AUTH_SUCCESS', payload: user.data });
       localStorage.setItem('user', JSON.stringify(user.data));
       navigate('/');
