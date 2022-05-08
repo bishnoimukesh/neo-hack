@@ -16,7 +16,9 @@ const Template = () => {
               <GridItem>
                 <Box boxSize="sm">
                   <Image src={template.image} h="200" w="400" alt="template" />
-                  <Button colorScheme="blue">Use This</Button>
+                  <Button colorScheme="blue" my={5}>
+                    Use This
+                  </Button>
                 </Box>
               </GridItem>
             </SimpleGrid>
