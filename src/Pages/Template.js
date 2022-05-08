@@ -29,8 +29,6 @@ const Template = () => {
             })}
             <TemplateOne />
         </Box>
-        
-
     )
 }
 
