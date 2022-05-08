@@ -44,12 +44,38 @@ app.post('/update', async (req, res) => {
     res.status(400).send(err);
   }
 });
-app.post('/update2', async (req, res) => {
+
+app.post('/updateProject', async (req, res) => {
   try {
     const user = await User.findOneAndUpdate({
       _id: req.body._id,
     }, 
     {$push: { project: req.body.projectData },},
+    {new: true});
+    res.send(user);
+  } catch (err) {
+    res.status(400).send(err);
+  }
+});
+
+app.post('/updateSkill', async (req, res) => {
+  try {
+    const user = await User.findOneAndUpdate({
+      _id: req.body._id,
+    }, 
+    {$push: { skill: req.body.skillData },},
+    {new: true});
+    res.send(user);
+  } catch (err) {
+    res.status(400).send(err);
+  }
+});
+app.post('/updateExperience', async (req, res) => {
+  try {
+    const user = await User.findOneAndUpdate({
+      _id: req.body._id,
+    }, 
+    {$push: { experience: req.body.experienceData },},
     {new: true});
     res.send(user);
   } catch (err) {

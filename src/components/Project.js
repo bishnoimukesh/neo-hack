@@ -13,7 +13,7 @@ const Project = () => {
     const submitFormHandler = async(projectData) => {
         console.log(projectData);
         try {
-        const data = await axios.post('http://localhost:3200/api/user/update2', {projectData, _id: user._id});
+        const data = await axios.post('http://localhost:3200/api/user/updateProject', {projectData, _id: user._id});
         console.log('update success',data);
         } catch (error) {
             console.log('Update Failed!', error);
