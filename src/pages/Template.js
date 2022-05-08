@@ -9,7 +9,7 @@ const Template = () => {
 
   return (
     <Box display="flex" justifyContent="space-around" p="3rem">
-      {template.map((template, index) => {
+      {template.map(template => {
         return (
           <Box display="flex" w="100%" h="100%" justifyContent="space-around">
             <SimpleGrid columns={4}>

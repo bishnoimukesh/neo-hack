@@ -15,11 +15,11 @@ const Experience = () => {
   const submitFormHandler = async experienceData => {
     console.log(experienceData);
     try {
-      const data = await axios.post(
+      const { data } = await axios.post(
         'http://localhost:3200/api/user/updateExperience',
         { experienceData, _id: user._id }
       );
-      console.log('update success', data);
+      localStorage.setItem('user', JSON.stringify(data));
     } catch (error) {
       console.log('Update Failed!', error);
     }

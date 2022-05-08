@@ -13,11 +13,11 @@ const Project = () => {
   const submitFormHandler = async projectData => {
     console.log(projectData);
     try {
-      const data = await axios.post(
+      const { data } = await axios.post(
         'http://localhost:3200/api/user/updateProject',
         { projectData, _id: user._id }
       );
-      console.log('update success', data);
+      localStorage.setItem('user', JSON.stringify(data));
     } catch (error) {
       console.log('Update Failed!', error);
     }

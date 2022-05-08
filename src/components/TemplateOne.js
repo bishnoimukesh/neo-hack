@@ -1,74 +1,100 @@
-import { Box, Heading, Text, Divider } from '@chakra-ui/react';
+import {
+  Box,
+  Heading,
+  Text,
+  Divider,
+  UnorderedList,
+  ListItem,
+} from '@chakra-ui/react';
 
 const TemplateOne = () => {
   const user = JSON.parse(localStorage.getItem('user'));
-
   return (
-    <>
-      <Box bg="tomato" w="100%" h="100vh" p={4} color="black">
-        <Box display="flex" justifyContent="space-between">
-          <Heading as="h2" size="m">
-            {user.firstName} {user.middleName} {user.lastName}
-          </Heading>
-          <Box>
-            <Text fontSize="md">{user.email}</Text>
-            <Text fontSize="md">{user.mobileNumber}</Text>
-            <Text fontSize="md">{user.address}</Text>
-            <Text fontSize="md">{user.twitter}</Text>
-          </Box>
-        </Box>
-        <Divider orientation="horizontal" />
+    <Box
+      bg="white"
+      w="80%"
+      justifyContent="center"
+      minHeight="100vh"
+      p={4}
+      color="black"
+      px={10}
+      border="1px"
+      borderColor="black"
+    >
+      <Box display="flex" justifyContent="space-between" my={4}>
+        <Heading as="h2" size="lg">
+          {user.firstName} {user.middleName} {user.lastName}
+        </Heading>
         <Box>
-          <Heading as="h3" size="lg">
-            Objective
-          </Heading>
-          <Text fontSize="md">{user.objective}</Text>
-        </Box>
-        <Divider orientation="horizontal" />
-        <Box>
-          <Heading as="h3" size="lg">
-            Experience
-          </Heading>
-          <Text fontSize="md">{/* {user.experience} */}</Text>
-        </Box>
-        <Divider orientation="horizontal" />
-        <Box>
-          <Heading as="h3" size="lg">
-            Skills
-          </Heading>
-          <Text fontSize="md">
-            {user.skill.map((skill, index) => {
-              return (
-                <Box key={index}>
-                  <Text>{skill.skill1}</Text>
-                  <Text>{skill.skill2}</Text>
-                  <Text>{skill.skill3}</Text>
-                  <Text>{skill.skill4}</Text>
-                </Box>
-              );
-            })}
-          </Text>
-        </Box>
-        <Divider orientation="horizontal" />
-        <Box>
-          <Heading as="h3" size="lg">
-            Projects
-          </Heading>
-          <Text fontSize="md">
-            {user.project.map((project, index) => {
-              return (
-                <Box key={index}>
-                  <Text>{project.title}</Text>
-                  <Text>{project.duration}</Text>
-                  <Text>{project.stacks}</Text>
-                  <Text>{project.description}</Text>
-                </Box>
-              );
-            })}
-          </Text>
+          <Text fontSize="md">{user.email}</Text>
+          <Text fontSize="md">{user.mobileNumber}</Text>
+          <Text fontSize="md">{user.address}</Text>
+          <Text fontSize="md">{user.twitter}</Text>
         </Box>
       </Box>
-    </>
+      <Divider backgroundColor="black" orientation="horizontal" />
+      <Box my={4}>
+        <Heading as="h3" size="md">
+          Objective
+        </Heading>
+        <Text fontSize="md" my={4}>
+          {user.objective}
+        </Text>
+      </Box>
+      <Divider backgroundColor="black" orientation="horizontal" />
+      <Box my={4}>
+        <Heading as="h3" size="md">
+          Experience
+        </Heading>
+        <Text fontSize="md" my={4}>
+          {user.experience.map((exp, index) => {
+            return (
+              <UnorderedList key={index}>
+                <ListItem>
+                  {exp.company} {exp.designation} {exp.technology}
+                </ListItem>
+              </UnorderedList>
+            );
+          })}
+        </Text>
+      </Box>
+      <Divider backgroundColor="black" orientation="horizontal" />
+      <Box my={4}>
+        <Heading as="h3" size="md">
+          Skills
+        </Heading>
+        <Text fontSize="md" my={4}>
+          {user.skill.map((skill, index) => {
+            return (
+              <UnorderedList key={index}>
+                <ListItem>{skill.skill1}</ListItem>
+                <ListItem>{skill.skill2}</ListItem>
+                <ListItem>{skill.skill3}</ListItem>
+                <ListItem>{skill.skill4}</ListItem>
+              </UnorderedList>
+            );
+          })}
+        </Text>
+      </Box>
+      <Divider backgroundColor="black" orientation="horizontal" />
+      <Box my={4}>
+        <Heading as="h3" size="md">
+          Projects
+        </Heading>
+        <Text fontSize="md" my={4}>
+          {user.project.map((project, index) => {
+            return (
+              <UnorderedList key={index}>
+                <ListItem>
+                  {project.title} {project.duration} {project.stacks}{' '}
+                  {project.description}
+                </ListItem>
+              </UnorderedList>
+            );
+          })}
+        </Text>
+      </Box>
+    </Box>
   );
 };
 
