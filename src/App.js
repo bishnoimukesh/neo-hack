@@ -15,8 +15,8 @@ function App() {
           <Route element={<ProtectedRoute />}>
             <Route path="/profile" element={<Profile />} />
             <Route path="/template" element={<Template />} />
-          </Route>
             <Route path="/resume" element={<Resume />} />
+          </Route>
         </Routes>
       </Box>
     </ChakraProvider>
