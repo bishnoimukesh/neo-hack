@@ -1,6 +1,7 @@
 import React, { useRef } from 'react';
 import {useReactToPrint} from 'react-to-print';
-import {Box} from '@chakra-ui/react';
+import {Box, Button} from '@chakra-ui/react';
+import {TemplateOne} from '../components/TemplateOne'
 
 const Resume = () => {
     const componentRef = useRef();
@@ -8,9 +9,16 @@ const Resume = () => {
         content: () => componentRef.current,
     });
     return (
-        <Box display="flex" justifyContent="space-around" p="3rem">
+        <Box  p="3rem">
             <Box ref={componentRef}>
-            <button onClick={handlePrint}>Print this out!</button>
+                <Button
+                type="submit"
+                colorScheme="blue"
+                my="4"
+                onClick={handlePrint}>
+                    Print Resume
+                </Button>
+                <TemplateOne />
             </Box>
         </Box>
     )
