@@ -30,6 +30,7 @@ const Skill = () => {
       <FormControl w="100%" name="skill">
         <SimpleGrid columns={[3, 3]} spacing="40px">
           <Input
+            mt={5}
             placeholder="Skills"
             name="skill1"
             onChange={e =>
@@ -38,6 +39,7 @@ const Skill = () => {
             value={skillInfo.skill1}
           />
           <Input
+            mt={5}
             placeholder="Skills"
             name="skill2"
             onChange={e =>
@@ -46,6 +48,7 @@ const Skill = () => {
             value={skillInfo.skill2}
           />
           <Input
+            mt={5}
             placeholder="Skills"
             name="skill3"
             onChange={e =>
@@ -54,6 +57,7 @@ const Skill = () => {
             value={skillInfo.skill3}
           />
           <Input
+            mb={5}
             placeholder="Skills"
             name="skill4"
             onChange={e =>
@@ -62,6 +66,7 @@ const Skill = () => {
             value={skillInfo.skill4}
           />
           <Input
+            mb={5}
             placeholder="Skills"
             name="skill5"
             onChange={e =>
@@ -70,6 +75,7 @@ const Skill = () => {
             value={skillInfo.skill5}
           />
           <Input
+            mb={5}
             placeholder="Skills"
             name="skill6"
             onChange={e =>
