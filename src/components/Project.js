@@ -1,6 +1,7 @@
-import { SimpleGrid, Input, Button, FormControl } from '@chakra-ui/react';
+import { Box, SimpleGrid, Input, Button, FormControl } from '@chakra-ui/react';
 import { useState } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 const Project = () => {
   const [projectInfo, setProjectInfo] = useState({
@@ -68,14 +69,21 @@ const Project = () => {
             value={projectInfo.description}
           />
         </SimpleGrid>
-        <Button
-          type="submit"
-          colorScheme="blue"
-          my="4"
-          onClick={() => submitFormHandler(projectInfo)}
-        >
-          Update Projects
-        </Button>
+        <Box display="flex" justifyContent="space-between" alignItems="center">
+          <Button
+            type="submit"
+            colorScheme="blue"
+            my="4"
+            onClick={() => submitFormHandler(projectInfo)}
+          >
+            Update Projects
+          </Button>
+          <Link to="/resume">
+            <Button colorScheme="blue" variant="solid">
+              Generate Resume
+            </Button>
+          </Link>
+        </Box>
       </FormControl>
     </>
   );

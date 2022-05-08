@@ -6,24 +6,15 @@ import {
   Tab,
   TabPanel,
   Box,
-  Button,
 } from '@chakra-ui/react';
 import { PersonalInfo, Skill, Experience, Project } from '../components';
-import { Link } from 'react-router-dom';
 
 const Profile = () => {
   return (
     <>
-      <Box display="flex" justifyContent="space-between" px="4rem">
-        <Heading display="flex" justifyContent="center" mt={5} mb={8}>
-          Update Profile
-        </Heading>
-        <Link to="/resume">
-          <Button colorScheme="blue" variant="solid">
-            Resume
-          </Button>
-        </Link>
-      </Box>
+      <Heading display="flex" justifyContent="center" mt={5} mb={8}>
+        Update Profile
+      </Heading>
 
       <Box display="flex" justifyContent="center">
         <Tabs w="90%">
