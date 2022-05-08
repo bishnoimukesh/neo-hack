@@ -15,10 +15,9 @@ const PersonalInfo = () => {
     });
 
     const user = JSON.parse(localStorage.getItem('user'));
-    const submitFormHandler = async(personalInfoData) => {
-        console.log(personalInfoData);
+    const submitFormHandler = async() => {
         try {
-        const data = await axios.post('http://localhost:3200/api/user/update', {...personalInfoData, _id: user._id});
+        const data = await axios.post('http://localhost:3200/api/user/update', {personalInfo, _id: user._id});
         console.log('update success',data);
         } catch (error) {
             console.log('Update Failed!', error);
@@ -68,7 +67,7 @@ const PersonalInfo = () => {
                 type="submit"
                 colorScheme="blue"
                 my="4"
-                onClick={() => submitFormHandler(personalInfo)}
+                onClick={submitFormHandler}
             >
                 Update Profile
             </Button>

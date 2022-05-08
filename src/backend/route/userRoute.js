@@ -32,13 +32,10 @@ app.post('/register', async (req, res) => {
 
 app.post('/update', async (req, res) => {
   try {
-    await User.findOneAndUpdate({
+    const user = await User.findOneAndUpdate({
       _id: req.body._id,
     }, 
-    {new: true})
-    const user = await User.findOne({
-      _id: req.body._id,
-    });
+    req.body.personalInfo, {new: true});
     res.send(user);
   } catch (err) {
     res.status(400).send(err);

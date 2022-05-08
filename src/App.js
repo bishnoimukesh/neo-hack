@@ -1,6 +1,6 @@
 import { ChakraProvider, Box, theme } from '@chakra-ui/react';
 import { Routes, Route } from 'react-router-dom';
-import { Login, SignUp, Home, Profile, Template, Resume } from './pages';
+import { Login, SignUp, Home, Profile, Template,Resume } from './pages';
 import { Navbar, ProtectedRoute } from './components';
 
 function App() {
@@ -15,8 +15,8 @@ function App() {
           <Route element={<ProtectedRoute />}>
             <Route path="/profile" element={<Profile />} />
             <Route path="/template" element={<Template />} />
-          </Route>
             <Route path="/resume" element={<Resume />} />
+          </Route>
         </Routes>
       </Box>
     </ChakraProvider>

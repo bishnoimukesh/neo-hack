@@ -96,7 +96,7 @@ const Experience = () => {
           type="submit"
           colorScheme="blue"
           my="4"
-          onClick={() => submitFormHandler(user)}
+          onClick={() => submitFormHandler(experienceInfo)}
         >
           Update Experiencs
         </Button>
