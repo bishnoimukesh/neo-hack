@@ -18,6 +18,8 @@ const TemplateOne = () => {
       p={4}
       color="black"
       px={10}
+      border="1px"
+      borderColor="black"
     >
       <Box display="flex" justifyContent="space-between" my={4}>
         <Heading as="h2" size="lg">
