@@ -10,17 +10,10 @@ const Resume = () => {
   });
   return (
     <Box p="3rem">
+      <Button colorScheme="blue" variant="outline" onClick={handlePrint} my={5}>
+        Print this out!
+      </Button>
       <Box ref={componentRef}>
-        <Button
-          colorScheme="blue"
-          variant="outline"
-          onClick={handlePrint}
-          my={5}
-        >
-          Print this out!
-        </Button>
-      </Box>
-      <Box>
         <TemplateOne />
       </Box>
     </Box>
