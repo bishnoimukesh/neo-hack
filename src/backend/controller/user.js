@@ -13,12 +13,23 @@ const userSchema = new mongoose.Schema({
     objective: { type: String, default: "" },
     experience: { type: Array, default: [] },
     skill: { type: Array, default: [] },
-    project: { type: Array, default: [] },
-}, {
+    project: { type: Array, default: [] }
+    }, {
     timestamps: true
-}
+    }
 )
 
+// const detailsSchema = new mongoose.Schema({
+//     experience: { type: Array, default: [] },
+//     skill: { type: Array, default: [] },
+//     project: { type: Array, default: [] },
+// }, {
+//     timestamps: true
+//     }
+// )
+
 const userModal = mongoose.model('users', userSchema)
+// const userModal2 = mongoose.model('users', detailsSchema);
 
 module.exports = userModal;
+// module.exports = userModal2;

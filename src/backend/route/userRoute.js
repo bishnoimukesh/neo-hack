@@ -3,14 +3,14 @@ const app = express.Router();
 const User = require('../controller/user');
 
 app.post('/login', async (req, res) => {
+  console.log(req, 'req')
   try {
     const result = await User.findOne({
-      username: req.body.username,
+      email: req.body.email,
       password: req.body.password,
     });
     if (result) {
-      const user = req.body;
-      res.send(user);
+      res.send(result);
     } else {
       res.status(400).send('Login Failed');
     }
@@ -34,8 +34,23 @@ app.post('/update', async (req, res) => {
   try {
     await User.findOneAndUpdate({
       _id: req.body._id,
-    }, req.body);
-    const user = await User.findOne({ _id: req.body._id });
+    }, 
+    {new: true})
+    const user = await User.findOne({
+      _id: req.body._id,
+    });
+    res.send(user);
+  } catch (err) {
+    res.status(400).send(err);
+  }
+});
+app.post('/update2', async (req, res) => {
+  try {
+    const user = await User.findOneAndUpdate({
+      _id: req.body._id,
+    }, 
+    {$push: { project: req.body.projectData },},
+    {new: true});
     res.send(user);
   } catch (err) {
     res.status(400).send(err);
