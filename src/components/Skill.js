@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 import { SimpleGrid, Input, Button, FormControl } from '@chakra-ui/react';
-=======
-import { SimpleGrid, Input, Button, FormControl } from '@chakra-ui/react'
->>>>>>> 5311d20bc7d3edb229dd8cef4ac1c3678ff80251
 import { useState } from 'react';
 import axios from 'axios';
 
