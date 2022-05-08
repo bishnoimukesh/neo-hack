@@ -2,7 +2,6 @@ import { Box, Heading, Text, Divider } from '@chakra-ui/react';
 
 const TemplateOne = () => {
   const user = JSON.parse(localStorage.getItem('user'));
-  console.log('User hu mai!', user);
   return (
     <Box bg="tomato" w="100%" h="100vh" p={4} color="black">
       <Box display="flex" justifyContent="space-between">
