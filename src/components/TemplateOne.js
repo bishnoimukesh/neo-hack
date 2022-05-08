@@ -1,9 +1,24 @@
-import { Box, Heading, Text, Divider } from '@chakra-ui/react';
+import {
+  Box,
+  Heading,
+  Text,
+  Divider,
+  UnorderedList,
+  ListItem,
+} from '@chakra-ui/react';
 
 const TemplateOne = () => {
   const user = JSON.parse(localStorage.getItem('user'));
   return (
-    <Box bg="white" w="100%" minHeight="100vh" p={4} color="black">
+    <Box
+      bg="white"
+      w="80%"
+      justifyContent="center"
+      minHeight="100vh"
+      p={4}
+      color="black"
+      px={10}
+    >
       <Box display="flex" justifyContent="space-between" my={4}>
         <Heading as="h2" size="lg">
           {user.firstName} {user.middleName} {user.lastName}
@@ -32,11 +47,11 @@ const TemplateOne = () => {
         <Text fontSize="md" my={4}>
           {user.experience.map((exp, index) => {
             return (
-              <Box key={index}>
-                <Text>{exp.company}</Text>
-                <Text>{exp.designation}</Text>
-                <Text>{exp.technology}</Text>
-              </Box>
+              <UnorderedList key={index}>
+                <ListItem>
+                  {exp.company} {exp.designation} {exp.technology}
+                </ListItem>
+              </UnorderedList>
             );
           })}
         </Text>
@@ -49,12 +64,12 @@ const TemplateOne = () => {
         <Text fontSize="md" my={4}>
           {user.skill.map((skill, index) => {
             return (
-              <Box key={index}>
-                <Text>{skill.skill1}</Text>
-                <Text>{skill.skill2}</Text>
-                <Text>{skill.skill3}</Text>
-                <Text>{skill.skill4}</Text>
-              </Box>
+              <UnorderedList key={index}>
+                <ListItem>{skill.skill1}</ListItem>
+                <ListItem>{skill.skill2}</ListItem>
+                <ListItem>{skill.skill3}</ListItem>
+                <ListItem>{skill.skill4}</ListItem>
+              </UnorderedList>
             );
           })}
         </Text>
@@ -67,12 +82,12 @@ const TemplateOne = () => {
         <Text fontSize="md" my={4}>
           {user.project.map((project, index) => {
             return (
-              <Box key={index}>
-                <Text>{project.title}</Text>
-                <Text>{project.duration}</Text>
-                <Text>{project.stacks}</Text>
-                <Text>{project.description}</Text>
-              </Box>
+              <UnorderedList key={index}>
+                <ListItem>
+                  {project.title} {project.duration} {project.stacks}{' '}
+                  {project.description}
+                </ListItem>
+              </UnorderedList>
             );
           })}
         </Text>
