@@ -1,6 +1,7 @@
 import { SimpleGrid, Input, Button, FormControl } from '@chakra-ui/react';
 import { useState } from 'react';
 import axios from 'axios';
+import { useToast } from '../custom-hooks';
 
 const Project = () => {
   const [projectInfo, setProjectInfo] = useState({
@@ -9,17 +10,21 @@ const Project = () => {
     stacks: '',
     description: '',
   });
+
   const user = JSON.parse(localStorage.getItem('user'));
+
+  const { showToast } = useToast();
+
   const submitFormHandler = async projectData => {
     console.log(projectData);
     try {
-      const data = await axios.post(
-        'http://localhost:3200/api/user/updateProject',
-        { projectData, _id: user._id }
-      );
-      console.log('update success', data);
+      await axios.post('http://localhost:3200/api/user/updateProject', {
+        projectData,
+        _id: user._id,
+      });
+      showToast('Projects Updated!', 'success');
     } catch (error) {
-      console.log('Update Failed!', error);
+      showToast(error.response.data, 'error');
     }
   };
 

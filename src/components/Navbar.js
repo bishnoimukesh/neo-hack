@@ -2,6 +2,7 @@ import { Box, Button, Heading, Image } from '@chakra-ui/react';
 import { ColorModeSwitcher } from '../ColorModeSwitcher';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts';
+import { useToast } from '../custom-hooks';
 
 const Navbar = () => {
   const {
@@ -9,9 +10,11 @@ const Navbar = () => {
   } = useAuth();
 
   const navigate = useNavigate();
+  const { showToast } = useToast();
 
   const logoutHandler = () => {
     localStorage.clear();
+    showToast('Logout Successfully!', 'success');
     navigate(0);
     navigate('/');
   };

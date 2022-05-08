@@ -1,6 +1,7 @@
 import { SimpleGrid, Input, Button, FormControl } from '@chakra-ui/react';
 import { useState } from 'react';
 import axios from 'axios';
+import { useToast } from '../custom-hooks';
 
 const Experience = () => {
   const [experienceInfo, setexperienceInfo] = useState({
@@ -11,7 +12,11 @@ const Experience = () => {
     to: '',
     technology: '',
   });
+
   const user = JSON.parse(localStorage.getItem('user'));
+
+  const { showToast } = useToast();
+
   const submitFormHandler = async experienceData => {
     console.log(experienceData);
     try {
@@ -19,9 +24,9 @@ const Experience = () => {
         'http://localhost:3200/api/user/updateExperience',
         { experienceData, _id: user._id }
       );
-      console.log('update success', data);
+      showToast('Experience Updated!', 'success');
     } catch (error) {
-      console.log('Update Failed!', error);
+      showToast(error.response.data, 'error');
     }
   };
 
