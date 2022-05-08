@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import { useReactToPrint } from 'react-to-print';
-import { Box } from '@chakra-ui/react';
+import { Box, Button } from '@chakra-ui/react';
 import { TemplateOne } from '../components';
 
 const Resume = () => {
@@ -11,7 +11,14 @@ const Resume = () => {
   return (
     <Box p="3rem">
       <Box ref={componentRef}>
-        <button onClick={handlePrint}>Print this out!</button>
+        <Button
+          colorScheme="blue"
+          variant="outline"
+          onClick={handlePrint}
+          my={5}
+        >
+          Print this out!
+        </Button>
       </Box>
       <Box>
         <TemplateOne />

@@ -3,9 +3,9 @@ import { Box, Heading, Text, Divider } from '@chakra-ui/react';
 const TemplateOne = () => {
   const user = JSON.parse(localStorage.getItem('user'));
   return (
-    <Box bg="tomato" w="100%" h="100vh" p={4} color="black">
-      <Box display="flex" justifyContent="space-between">
-        <Heading as="h2" size="m">
+    <Box bg="white" w="100%" minHeight="100vh" p={4} color="black">
+      <Box display="flex" justifyContent="space-between" my={4}>
+        <Heading as="h2" size="lg">
           {user.firstName} {user.middleName} {user.lastName}
         </Heading>
         <Box>
@@ -15,19 +15,21 @@ const TemplateOne = () => {
           <Text fontSize="md">{user.twitter}</Text>
         </Box>
       </Box>
-      <Divider orientation="horizontal" />
-      <Box>
-        <Heading as="h3" size="lg">
+      <Divider backgroundColor="black" orientation="horizontal" />
+      <Box my={4}>
+        <Heading as="h3" size="md">
           Objective
         </Heading>
-        <Text fontSize="md">{user.objective}</Text>
+        <Text fontSize="md" my={4}>
+          {user.objective}
+        </Text>
       </Box>
-      <Divider orientation="horizontal" />
-      <Box>
-        <Heading as="h3" size="lg">
+      <Divider backgroundColor="black" orientation="horizontal" />
+      <Box my={4}>
+        <Heading as="h3" size="md">
           Experience
         </Heading>
-        <Text fontSize="md">
+        <Text fontSize="md" my={4}>
           {user.experience.map((exp, index) => {
             return (
               <Box key={index}>
@@ -39,12 +41,12 @@ const TemplateOne = () => {
           })}
         </Text>
       </Box>
-      <Divider orientation="horizontal" />
-      <Box>
-        <Heading as="h3" size="lg">
+      <Divider backgroundColor="black" orientation="horizontal" />
+      <Box my={4}>
+        <Heading as="h3" size="md">
           Skills
         </Heading>
-        <Text fontSize="md">
+        <Text fontSize="md" my={4}>
           {user.skill.map((skill, index) => {
             return (
               <Box key={index}>
@@ -57,12 +59,12 @@ const TemplateOne = () => {
           })}
         </Text>
       </Box>
-      <Divider orientation="horizontal" />
-      <Box>
-        <Heading as="h3" size="lg">
+      <Divider backgroundColor="black" orientation="horizontal" />
+      <Box my={4}>
+        <Heading as="h3" size="md">
           Projects
         </Heading>
-        <Text fontSize="md">
+        <Text fontSize="md" my={4}>
           {user.project.map((project, index) => {
             return (
               <Box key={index}>
