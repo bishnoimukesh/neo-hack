@@ -7,8 +7,7 @@ Resume builder  is as unique as your career journey, which means that no two res
 
 ## Demo
 
-Insert gif or link to demo
-
+https://user-images.githubusercontent.com/54413717/167319514-c77345d5-52ef-47ec-b352-3a2d60744b9b.mp4
 
 ## Features
 
