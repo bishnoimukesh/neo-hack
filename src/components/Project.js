@@ -1,4 +1,11 @@
-import { Box, SimpleGrid, Input, Button, FormControl } from '@chakra-ui/react';
+import {
+  Box,
+  SimpleGrid,
+  Input,
+  Button,
+  FormControl,
+  useToast,
+} from '@chakra-ui/react';
 import { useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
@@ -10,15 +17,24 @@ const Project = () => {
     stacks: '',
     description: '',
   });
+
   const user = JSON.parse(localStorage.getItem('user'));
+  const toast = useToast();
+
   const submitFormHandler = async projectData => {
-    console.log(projectData);
     try {
       const { data } = await axios.post(
         'http://localhost:3200/api/user/updateProject',
         { projectData, _id: user._id }
       );
       localStorage.setItem('user', JSON.stringify(data));
+      toast({
+        title: 'Projects Data Added!',
+        position: 'top-right',
+        status: 'success',
+        duration: 4000,
+        isClosable: true,
+      });
       setProjectInfo({
         ...projectInfo,
         title: '',
@@ -27,7 +43,13 @@ const Project = () => {
         description: '',
       });
     } catch (error) {
-      console.log('Update Failed!', error);
+      toast({
+        title: error.response.data,
+        position: 'top-right',
+        status: 'error',
+        duration: 2000,
+        isClosable: true,
+      });
     }
   };
 
