@@ -27,7 +27,7 @@ const Login = () => {
   const submitFormHandler = async userData => {
     try {
       const user = await axios.post(
-        'http://localhost:3200/api/user/login',
+        'https://neo-resume-api.herokuapp.com/api/user/login',
         userData
       );
       authDispatch({ type: 'AUTH_SUCCESS', payload: user.data });

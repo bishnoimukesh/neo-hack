@@ -25,7 +25,7 @@ const Skill = () => {
     console.log(skillData);
     try {
       const { data } = await axios.post(
-        'http://localhost:3200/api/user/updateSkill',
+        'https://neo-resume-api.herokuapp.com/api/user/updateSkill',
         { skillData, _id: user._id }
       );
       localStorage.setItem('user', JSON.stringify(data));

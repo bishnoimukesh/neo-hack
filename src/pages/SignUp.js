@@ -27,7 +27,7 @@ const SignUp = () => {
   const submitFormHandler = async userData => {
     try {
       const { data } = await axios.post(
-        'http://localhost:3200/api/user/register',
+        'https://neo-resume-api.herokuapp.com/api/user/register',
         userData
       );
       console.log(data);

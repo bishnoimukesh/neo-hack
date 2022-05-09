@@ -24,7 +24,7 @@ const Experience = () => {
     console.log(experienceData);
     try {
       const { data } = await axios.post(
-        'http://localhost:3200/api/user/updateExperience',
+        'https://neo-resume-api.herokuapp.com/api/user/updateExperience',
         { experienceData, _id: user._id }
       );
       localStorage.setItem('user', JSON.stringify(data));

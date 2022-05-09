@@ -24,7 +24,7 @@ const Project = () => {
   const submitFormHandler = async projectData => {
     try {
       const { data } = await axios.post(
-        'http://localhost:3200/api/user/updateProject',
+        'https://neo-resume-api.herokuapp.com/api/user/updateProject',
         { projectData, _id: user._id }
       );
       localStorage.setItem('user', JSON.stringify(data));
